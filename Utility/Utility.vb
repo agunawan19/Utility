@@ -1,5 +1,5 @@
 ﻿Public Class Utility
-    Public Function ConvertMemoFieldToDictionary(
+    Public Function ConvertMemoFieldsToDictionary(
         text As String,
         delimiters As String(),
         Optional includedColumns As HashSet(Of String) = Nothing) As Dictionary(Of String, String)
