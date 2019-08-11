@@ -6,8 +6,8 @@ Imports Utility.Utility
 
     <TestMethod()> Public Sub ConvertMemoFieldToDictionaryShouldReturnCorrectResult()
         Dim utility As New Utility()
-        Dim memo As String = $"FIELD1=.T.;FIELD2=0;FIELD3=,FIELD4=100,FIELD5=ABC"
-        Dim delimiters As String() = {";", ","}
+        Dim memo As String = $"FIELD1=.T.{vbCrLf}FIELD2=0{vbCrLf}FIELD3={vbLf}FIELD4=100{vbCrLf}FIELD5=ABC"
+        Dim delimiters As String() = {vbCrLf, vbLf}
         Dim expected As Dictionary(Of String, String) = New Dictionary(Of String, String) From {
             {"FIELD1", ".T."},
             {"FIELD2", "0"},
