@@ -17,6 +17,12 @@
             If isIncludedColumn Then
                 keyValuePairs(kvp(0)) = kvp(1)
             End If
+
+            If includedColumns IsNot Nothing Then
+                If keyValuePairs.Count = includedColumns.Count Then
+                    Exit For
+                End If
+            End If
         Next
 
         Return keyValuePairs

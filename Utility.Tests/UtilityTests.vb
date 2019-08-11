@@ -6,26 +6,26 @@ Imports Utility.Utility
 
     <TestMethod()> Public Sub ConvertMemoFieldToDictionaryShouldReturnCorrectResult()
         Dim utility As New Utility()
-        Dim memo As String = $"FIELD1=.T.;FIELD2=0;FIELD3=,FIELD4=100"
+        Dim memo As String = $"FIELD1=.T.;FIELD2=0;FIELD3=,FIELD4=100,FIELD5=ABC"
         Dim delimiters As String() = {";", ","}
-        Dim includedFields As New HashSet(Of String) From {
-            "FIELD2", "FIELD3"
-        }
-
-        Dim actual As Dictionary(Of String, String) = utility.ConvertMemoFieldToDictionary(memo, delimiters)
         Dim expected As Dictionary(Of String, String) = New Dictionary(Of String, String) From {
             {"FIELD1", ".T."},
             {"FIELD2", "0"},
             {"FIELD3", ""},
-            {"FIELD4", "100"}
+            {"FIELD4", "100"},
+            {"FIELD5", "ABC"}
         }
+        Dim actual As Dictionary(Of String, String) = utility.ConvertMemoFieldToDictionary(memo, delimiters)
 
         CollectionAssert.AreEqual(expected, actual)
 
+        Dim includedFields As New HashSet(Of String) From {
+            "FIELD2", "FIELD4"
+        }
         actual = utility.ConvertMemoFieldToDictionary(memo, delimiters, includedFields)
         expected = New Dictionary(Of String, String) From {
             {"FIELD2", "0"},
-            {"FIELD3", ""}
+            {"FIELD4", "100"}
         }
 
         CollectionAssert.AreEqual(expected, actual)
