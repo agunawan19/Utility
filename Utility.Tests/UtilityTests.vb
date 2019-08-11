@@ -33,7 +33,7 @@ Imports Utility.Utility
 
     <TestMethod()> Public Sub ConvertMemoFieldToDictionaryShouldReturnEmptyDictionary()
         Dim utility As New Utility()
-        Dim memo As String = ""
+        Dim memo As String = String.Empty
         Dim delimiters As String() = {";"}
 
         Dim actual As Dictionary(Of String, String) = utility.ConvertMemoFieldToDictionary(memo, delimiters)
@@ -41,4 +41,5 @@ Imports Utility.Utility
 
         CollectionAssert.AreEqual(expected, actual)
     End Sub
+
 End Class
