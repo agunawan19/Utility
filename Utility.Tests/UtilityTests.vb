@@ -15,14 +15,14 @@ Imports Utility.Utility
             {"FIELD4", "100"},
             {"FIELD5", "ABC"}
         }
-        Dim actual As Dictionary(Of String, String) = utility.ConvertMemoFieldsToDictionary(memo, delimiters)
+        Dim actual As Dictionary(Of String, String) = utility.ConvertMemoFieldToDictionary(memo, delimiters)
 
         CollectionAssert.AreEqual(expected, actual)
 
         Dim includedFields As New HashSet(Of String) From {
             "FIELD2", "FIELD4"
         }
-        actual = utility.ConvertMemoFieldsToDictionary(memo, delimiters, includedFields)
+        actual = utility.ConvertMemoFieldToDictionary(memo, delimiters, includedFields)
         expected = New Dictionary(Of String, String) From {
             {"FIELD2", "0"},
             {"FIELD4", "100"}
@@ -36,7 +36,7 @@ Imports Utility.Utility
         Dim memo As String = ""
         Dim delimiters As String() = {";"}
 
-        Dim actual As Dictionary(Of String, String) = utility.ConvertMemoFieldsToDictionary(memo, delimiters)
+        Dim actual As Dictionary(Of String, String) = utility.ConvertMemoFieldToDictionary(memo, delimiters)
         Dim expected As New Dictionary(Of String, String)()
 
         CollectionAssert.AreEqual(expected, actual)
