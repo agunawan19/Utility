@@ -28,7 +28,7 @@
         Return keyValuePairs
     End Function
 
-    Private Function GetFrequencyCaptions(frequency As String) As String
+    Public Function GetFrequencyCaptions(frequency As String) As String
         Dim caption As String = String.Empty
 
         ' Syssetup.GetSystemSetup("COT" & item.ToString() & "_DESC")
@@ -42,7 +42,7 @@
         Return caption
     End Function
 
-    Private Function GetOvertimeCaption(overtimeLevel As String) As String
+    Public Function GetOvertimeCaption(overtimeLevel As String) As String
         Dim caption As String = String.Empty
 
         Dim level As Byte = 0
