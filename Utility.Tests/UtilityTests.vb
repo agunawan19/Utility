@@ -1,7 +1,6 @@
 ﻿Imports System.Text
 Imports Microsoft.VisualStudio.TestTools.UnitTesting
 Imports Utility.Utility
-Imports Telerik.JustMock
 
 <TestClass()> Public Class UtilityTests
 
