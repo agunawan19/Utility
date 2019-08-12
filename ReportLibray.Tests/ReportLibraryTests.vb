@@ -17,7 +17,7 @@ Imports Moq
         {"FIELD4", "100"},
         {"FIELD5", "ABC"}
     }
-        Dim actual As Dictionary(Of String, String) = reportLib.ConvertMemoFieldToDictionary(memo, delimiters)
+        Dim actual As Dictionary(Of String, String) = reportLib.GetDictionaryFromMemoField(memo, delimiters)
 
         CollectionAssert.AreEqual(expected, actual)
 
@@ -28,7 +28,7 @@ Imports Moq
         {"FIELD2", "0"},
         {"FIELD4", "100"}
     }
-        actual = reportLib.ConvertMemoFieldToDictionary(memo, delimiters, includedFields)
+        actual = reportLib.GetDictionaryFromMemoField(memo, delimiters, includedFields)
 
         CollectionAssert.AreEqual(expected, actual)
     End Sub
@@ -39,7 +39,7 @@ Imports Moq
         Dim delimiters As String() = {";"}
 
         Dim expected As New Dictionary(Of String, String)()
-        Dim actual As Dictionary(Of String, String) = reportLib.ConvertMemoFieldToDictionary(memo, delimiters)
+        Dim actual As Dictionary(Of String, String) = reportLib.GetDictionaryFromMemoField(memo, delimiters)
 
         CollectionAssert.AreEqual(expected, actual)
     End Sub

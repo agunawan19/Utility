@@ -1,10 +1,10 @@
 ﻿Namespace UtilityLibraries
     Public Class ReportLibrary
         Implements IReportLibrary
-        Public Function ConvertMemoFieldToDictionary(
+        Public Function GetDictionaryFromMemoField(
             text As String,
             delimiters As String(),
-            Optional includedColumns As HashSet(Of String) = Nothing) As Dictionary(Of String, String) Implements IReportLibrary.ConvertMemoFieldToDictionary
+            Optional includedColumns As HashSet(Of String) = Nothing) As Dictionary(Of String, String) Implements IReportLibrary.GetDictionaryFromMemoField
             Dim keyValuePairs As New Dictionary(Of String, String)()
             Dim pairs As String() = text.Split(delimiters, StringSplitOptions.RemoveEmptyEntries)
             Dim isIncludedColumn As Boolean = True
