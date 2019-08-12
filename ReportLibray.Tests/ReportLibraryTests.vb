@@ -1,12 +1,11 @@
 ﻿Imports System.Text
 Imports Microsoft.VisualStudio.TestTools.UnitTesting
 Imports UtilityLibraries
-Imports Moq
 
 <TestClass()> Public Class ReportLibrayTests
+    Inherits ReportLibraryTestsBase
 
     <TestMethod()> Public Sub ConvertMemoFieldToDictionaryShouldReturnCorrectResult()
-        Dim reportLibrary As New ReportLibrary()
         Dim memo As String = $"FIELD1=.T.{vbCrLf}FIELD2=0{vbCrLf}FIELD3={vbLf}FIELD4=100{vbCrLf}FIELD5=ABC"
         Dim delimiters As String() = {vbCrLf, vbLf}
 
@@ -18,7 +17,7 @@ Imports Moq
             {"FIELD4", "100"},
             {"FIELD5", "ABC"}
         }
-        Dim actual As Dictionary(Of String, String) = reportLibrary.GetDictionaryFromMemoField(memo, delimiters)
+        Dim actual As Dictionary(Of String, String) = ReportLibrary.GetDictionaryFromMemoField(memo, delimiters)
 
         CollectionAssert.AreEqual(expected, actual)
 
@@ -31,18 +30,17 @@ Imports Moq
             {"FIELD2", "0"},
             {"FIELD4", "100"}
         }
-        actual = reportLibrary.GetDictionaryFromMemoField(memo, delimiters, includedFields)
+        actual = ReportLibrary.GetDictionaryFromMemoField(memo, delimiters, includedFields)
 
         CollectionAssert.AreEqual(expected, actual)
     End Sub
 
     <TestMethod()> Public Sub ConvertMemoFieldToDictionaryShouldReturnEmptyDictionary()
-        Dim reportLibrary As New ReportLibrary()
         Dim memo As String = String.Empty
         Dim delimiters As String() = {";"}
 
         Dim expected As New Dictionary(Of String, String)()
-        Dim actual As Dictionary(Of String, String) = reportLibrary.GetDictionaryFromMemoField(memo, delimiters)
+        Dim actual As Dictionary(Of String, String) = ReportLibrary.GetDictionaryFromMemoField(memo, delimiters)
 
         CollectionAssert.AreEqual(expected, actual)
     End Sub
@@ -51,9 +49,7 @@ Imports Moq
         Const caption1 As String = "Once Per Pay Period"
         Const caption2 As String = "Once Per Week"
 
-        Dim mockReportLibrary = New Mock(Of IReportLibrary)()
-
-        mockReportLibrary.Setup(Function(obj) obj.GetFrequencyCaptions("1")).Returns(caption1)
+        MockReportLibrary.Setup(Function(obj) obj.GetFrequencyCaptions("1")).Returns(caption1)
         mockReportLibrary.Setup(Function(obj) obj.GetFrequencyCaptions("2")).Returns(caption2)
 
         Dim expected1 As String = caption1
