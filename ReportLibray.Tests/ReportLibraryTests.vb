@@ -10,24 +10,27 @@ Imports Moq
         Dim memo As String = $"FIELD1=.T.{vbCrLf}FIELD2=0{vbCrLf}FIELD3={vbLf}FIELD4=100{vbCrLf}FIELD5=ABC"
         Dim delimiters As String() = {vbCrLf, vbLf}
 
-        Dim expected As New Dictionary(Of String, String) From {
-        {"FIELD1", ".T."},
-        {"FIELD2", "0"},
-        {"FIELD3", ""},
-        {"FIELD4", "100"},
-        {"FIELD5", "ABC"}
-    }
+        Dim expected As New Dictionary(Of String, String) From
+        {
+            {"FIELD1", ".T."},
+            {"FIELD2", "0"},
+            {"FIELD3", ""},
+            {"FIELD4", "100"},
+            {"FIELD5", "ABC"}
+        }
         Dim actual As Dictionary(Of String, String) = mockReportLibrary.GetDictionaryFromMemoField(memo, delimiters)
 
         CollectionAssert.AreEqual(expected, actual)
 
-        Dim includedFields As New HashSet(Of String) From {
-        "FIELD2", "FIELD4"
-    }
-        expected = New Dictionary(Of String, String) From {
-        {"FIELD2", "0"},
-        {"FIELD4", "100"}
-    }
+        Dim includedFields As New HashSet(Of String) From
+        {
+            "FIELD2", "FIELD4"
+        }
+        expected = New Dictionary(Of String, String) From
+        {
+            {"FIELD2", "0"},
+            {"FIELD4", "100"}
+        }
         actual = mockReportLibrary.GetDictionaryFromMemoField(memo, delimiters, includedFields)
 
         CollectionAssert.AreEqual(expected, actual)
