@@ -6,7 +6,7 @@ Imports Moq
 <TestClass()> Public Class ReportLibrayTests
 
     <TestMethod()> Public Sub ConvertMemoFieldToDictionaryShouldReturnCorrectResult()
-        Dim reportLib As New ReportLibrary()
+        Dim mockReportLibrary As New ReportLibrary()
         Dim memo As String = $"FIELD1=.T.{vbCrLf}FIELD2=0{vbCrLf}FIELD3={vbLf}FIELD4=100{vbCrLf}FIELD5=ABC"
         Dim delimiters As String() = {vbCrLf, vbLf}
 
@@ -17,7 +17,7 @@ Imports Moq
         {"FIELD4", "100"},
         {"FIELD5", "ABC"}
     }
-        Dim actual As Dictionary(Of String, String) = reportLib.GetDictionaryFromMemoField(memo, delimiters)
+        Dim actual As Dictionary(Of String, String) = mockReportLibrary.GetDictionaryFromMemoField(memo, delimiters)
 
         CollectionAssert.AreEqual(expected, actual)
 
@@ -28,18 +28,18 @@ Imports Moq
         {"FIELD2", "0"},
         {"FIELD4", "100"}
     }
-        actual = reportLib.GetDictionaryFromMemoField(memo, delimiters, includedFields)
+        actual = mockReportLibrary.GetDictionaryFromMemoField(memo, delimiters, includedFields)
 
         CollectionAssert.AreEqual(expected, actual)
     End Sub
 
     <TestMethod()> Public Sub ConvertMemoFieldToDictionaryShouldReturnEmptyDictionary()
-        Dim reportLib As New ReportLibrary()
+        Dim mockReportLibrary As New ReportLibrary()
         Dim memo As String = String.Empty
         Dim delimiters As String() = {";"}
 
         Dim expected As New Dictionary(Of String, String)()
-        Dim actual As Dictionary(Of String, String) = reportLib.GetDictionaryFromMemoField(memo, delimiters)
+        Dim actual As Dictionary(Of String, String) = mockReportLibrary.GetDictionaryFromMemoField(memo, delimiters)
 
         CollectionAssert.AreEqual(expected, actual)
     End Sub
@@ -48,18 +48,16 @@ Imports Moq
         Const caption1 As String = "Once Per Pay Period"
         Const caption2 As String = "Once Per Week"
 
-        Dim mockObject = New Mock(Of IReportLibrary)()
+        Dim mockReportLibrary = New Mock(Of IReportLibrary)()
 
-        mockObject.Setup(Function(obj) obj.GetFrequencyCaptions("1")).Returns(caption1)
-        mockObject.Setup(Function(obj) obj.GetFrequencyCaptions("2")).Returns(caption2)
-
-        Dim utility As IReportLibrary = mockObject.Object
+        mockReportLibrary.Setup(Function(obj) obj.GetFrequencyCaptions("1")).Returns(caption1)
+        mockReportLibrary.Setup(Function(obj) obj.GetFrequencyCaptions("2")).Returns(caption2)
 
         Dim expected1 As String = caption1
-        Dim actual1 As String = utility.GetFrequencyCaptions("1")
+        Dim actual1 As String = mockReportLibrary.Object.GetFrequencyCaptions("1")
 
         Dim expected2 As String = caption2
-        Dim actual2 As String = utility.GetFrequencyCaptions("2")
+        Dim actual2 As String = mockReportLibrary.Object.GetFrequencyCaptions("2")
 
         Assert.AreEqual(expected1, actual1)
         Assert.AreEqual(expected2, actual2)
