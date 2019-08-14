@@ -1,20 +1,28 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29123.88
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.779
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B5E97880-F748-4C4C-9EED-96A99CDF7461}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UtilityLibraries", "UtilityLibraries", "{46A3FBA1-EF13-4DCC-A3DE-3D1A8833DCA8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UtilitiesLibrary", "UtilitiesLibrary", "{46A3FBA1-EF13-4DCC-A3DE-3D1A8833DCA8}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ReportLibrary", "ReportLibrary\ReportLibrary.vbproj", "{FA56F0EF-E609-414A-8026-E7BB48F34DF0}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "UtilityConsole", "UtilityConsole\UtilityConsole.vbproj", "{3B9F8F9D-2290-4F9C-9F12-58AD8A44BB5E}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ReportLibray.Tests", "ReportLibray.Tests\ReportLibray.Tests.vbproj", "{36357ED1-5CAF-49E3-A41B-44B08854665B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Uti", "Uti", "{C2E18220-7380-4297-8B73-E6D527290C76}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CommonUtiltities", "CommonUtiltities", "{0DF0CA79-794E-43DE-A19D-9D357E5839FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonUtilities", "CommonUtilities\CommonUtilities.csproj", "{0B98839D-0BD8-4E2C-B4A2-B5D2CCEAD3AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonUtilities.Tests", "CommonUtilities.Tests\CommonUtilities.Tests.csproj", "{495EAC2F-7D25-4E7B-B4C4-A5C1C63BD3C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,6 +42,14 @@ Global
 		{36357ED1-5CAF-49E3-A41B-44B08854665B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36357ED1-5CAF-49E3-A41B-44B08854665B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36357ED1-5CAF-49E3-A41B-44B08854665B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B98839D-0BD8-4E2C-B4A2-B5D2CCEAD3AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B98839D-0BD8-4E2C-B4A2-B5D2CCEAD3AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B98839D-0BD8-4E2C-B4A2-B5D2CCEAD3AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B98839D-0BD8-4E2C-B4A2-B5D2CCEAD3AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{495EAC2F-7D25-4E7B-B4C4-A5C1C63BD3C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{495EAC2F-7D25-4E7B-B4C4-A5C1C63BD3C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{495EAC2F-7D25-4E7B-B4C4-A5C1C63BD3C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{495EAC2F-7D25-4E7B-B4C4-A5C1C63BD3C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +57,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{FA56F0EF-E609-414A-8026-E7BB48F34DF0} = {46A3FBA1-EF13-4DCC-A3DE-3D1A8833DCA8}
 		{36357ED1-5CAF-49E3-A41B-44B08854665B} = {46A3FBA1-EF13-4DCC-A3DE-3D1A8833DCA8}
+		{0B98839D-0BD8-4E2C-B4A2-B5D2CCEAD3AE} = {0DF0CA79-794E-43DE-A19D-9D357E5839FC}
+		{495EAC2F-7D25-4E7B-B4C4-A5C1C63BD3C7} = {0DF0CA79-794E-43DE-A19D-9D357E5839FC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D3110726-809C-420F-9156-2B0CDE48F27C}
