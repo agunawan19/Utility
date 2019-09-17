@@ -61,4 +61,27 @@ Imports UtilityLibraries
         Assert.AreEqual(expected1, actual1)
         Assert.AreEqual(expected2, actual2)
     End Sub
+
+    <DataTestMethod()>
+    <DataRow("123121234", "999-99-9999", False, "123-12-1234")>
+    <DataRow("123121234", "999-99-9999", True, "***-**-****")>
+    <DataRow("123121234", "(999) (99)*(9999)", False, "(123) (12)*(1234)")>
+    <DataRow("123121234", "(999) (99)*(9999)", True, "(***) (**)*(****)")>
+    <DataRow("123121234", "%(999) (99)#*(9999)", False, "%(123) (12)#*(1234)")>
+    <DataRow("123121234", "%(999) (99)#*(9999)", True, "%(***) (**)#*(****)")>
+    <DataRow("12312123", "%($$$) (XX)#*(9999)", False, "%(123) (12)#*(123)")>
+    <DataRow("12312123", "%($$$) (XX)#*(9999)", True, "%(***) (**)#*(***)")>
+    <DataRow("123121234", "99-99-9999", False, "12-31-2123")>
+    <DataRow("123121234", "99-99-9999", True, "**-**-****")>
+    <DataRow("1231212", "999-99-9999", False, "123-12-12")>
+    <DataRow("1231212", "999-99-9999", True, "***-**-**")>
+    <DataRow("12", "999-99-9999", False, "12--")>
+    <DataRow("12", "999-99-9999", True, "**--")>
+    <DataRow("", "999-99-9999", False, "")>
+    <DataRow("", "999-99-9999", True, "")>
+    Public Sub SSNFormatTestShouldReturnFormattedNumber(text As String, format As String, isMasked As Boolean, expected As String)
+        Dim actual As String = ReportLibrary.FormatSSN(text, format, isMasked)
+
+        Assert.AreEqual(expected, actual)
+    End Sub
 End Class

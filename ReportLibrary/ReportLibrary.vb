@@ -60,6 +60,35 @@
             Return caption
         End Function
 
+        Public Function FormatSSN(text As String, format As String, isMasked As Boolean) As String Implements IReportLibrary.FormatSSN
+            If String.IsNullOrWhiteSpace(text) Then
+                Return String.Empty
+            End If
+
+            Const maskedChar As Char = "*"
+            Dim ssn As IEnumerable(Of Char) = format.AsEnumerable()
+            Dim fixedChars As New HashSet(Of Char)("#%()*,- ".ToCharArray())
+            Dim charIndex As Short = 0
+
+            ssn = ssn.Aggregate(
+                New List(Of Char),
+                Function(newList, currentChar)
+                    If fixedChars.Contains(currentChar) Then
+                        newList.Add(currentChar)
+                    Else
+                        If charIndex < text.Length Then
+                            currentChar = If(Not isMasked, text(charIndex), maskedChar)
+                            newList.Add(currentChar)
+                            charIndex += 1
+                        End If
+                    End If
+
+                    Return newList
+                End Function)
+
+            Return New String(ssn.ToArray())
+        End Function
+
     End Class
 
 End Namespace
