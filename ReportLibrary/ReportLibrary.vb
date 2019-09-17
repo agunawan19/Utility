@@ -66,27 +66,28 @@
             End If
 
             Const maskedChar As Char = "*"
-            Dim ssn As IEnumerable(Of Char) = format.AsEnumerable()
             Dim nonReplaceableChars As New HashSet(Of Char)("#%()*,- ".ToCharArray())
-            Dim charIndex As Short = 0
 
-            ssn = ssn.Aggregate(
-                New List(Of Char),
-                Function(newList, currentChar)
+            format = format.Aggregate(
+                (New List(Of Char), 0S),
+                Function(initialValue As (CharList As List(Of Char), CharIndex As Short), currentChar As Char)
                     If nonReplaceableChars.Contains(currentChar) Then
-                        newList.Add(currentChar)
+                        initialValue.CharList.Add(currentChar)
                     Else
-                        If charIndex < text.Length Then
-                            currentChar = If(Not isMasked, text(charIndex), maskedChar)
-                            newList.Add(currentChar)
-                            charIndex += 1
+                        If initialValue.CharIndex < text.Length Then
+                            currentChar = If(Not isMasked, text(initialValue.CharIndex), maskedChar)
+                            initialValue.CharList.Add(currentChar)
+                            initialValue.CharIndex += 1
                         End If
                     End If
 
-                    Return newList
+                    Return initialValue
+                End Function,
+                Function(result As (CharList As List(Of Char), CharIndex As Short))
+                    Return result.CharList.ToArray()
                 End Function)
 
-            Return New String(ssn.ToArray())
+            Return format
         End Function
 
     End Class
