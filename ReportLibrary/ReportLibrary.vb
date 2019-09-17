@@ -67,13 +67,13 @@
 
             Const maskedChar As Char = "*"
             Dim ssn As IEnumerable(Of Char) = format.AsEnumerable()
-            Dim fixedChars As New HashSet(Of Char)("#%()*,- ".ToCharArray())
+            Dim nonReplaceableChars As New HashSet(Of Char)("#%()*,- ".ToCharArray())
             Dim charIndex As Short = 0
 
             ssn = ssn.Aggregate(
                 New List(Of Char),
                 Function(newList, currentChar)
-                    If fixedChars.Contains(currentChar) Then
+                    If nonReplaceableChars.Contains(currentChar) Then
                         newList.Add(currentChar)
                     Else
                         If charIndex < text.Length Then
