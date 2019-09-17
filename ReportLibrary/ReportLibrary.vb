@@ -70,13 +70,13 @@
 
             format = format.Aggregate(
                 (New List(Of Char), 0S),
-                Function(accumulator As (CharList As List(Of Char), CharIndex As Short), currentChar As Char)
-                    If nonReplaceableChars.Contains(currentChar) Then
-                        accumulator.CharList.Add(currentChar)
+                Function(accumulator As (CharList As List(Of Char), CharIndex As Short), nextChar As Char)
+                    If nonReplaceableChars.Contains(nextChar) Then
+                        accumulator.CharList.Add(nextChar)
                     Else
                         If accumulator.CharIndex < text.Length Then
-                            currentChar = If(Not isMasked, text(accumulator.CharIndex), maskedChar)
-                            accumulator.CharList.Add(currentChar)
+                            nextChar = If(Not isMasked, text(accumulator.CharIndex), maskedChar)
+                            accumulator.CharList.Add(nextChar)
                             accumulator.CharIndex += 1
                         End If
                     End If
