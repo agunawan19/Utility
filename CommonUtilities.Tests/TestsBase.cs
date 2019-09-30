@@ -8,11 +8,11 @@ using Moq;
 
 namespace CommonUtilities.Tests
 {
-    public class ExtensionsTestsBase
+    public class TestsBase
     {
         public IUnityContainer Container { get; }
 
-        public ExtensionsTestsBase()
+        public TestsBase()
         {
             Container = new UnityContainer();
             Container.RegisterInstance(typeof(Mock), new Mock<IUnityContainer>());

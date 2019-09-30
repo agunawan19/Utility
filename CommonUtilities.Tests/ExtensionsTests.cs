@@ -4,7 +4,7 @@ using System;
 namespace CommonUtilities.Tests
 {
     [TestClass()]
-    public class ExtensionsTests : ExtensionsTestsBase
+    public class ExtensionsTests : TestsBase
     {
         [DataTestMethod()]
         [DataRow(true, 10, 1, 10)]
@@ -54,7 +54,7 @@ namespace CommonUtilities.Tests
         [DataRow(false, 5, -10, 5)]
         public void IsBetweenExcludeEqualIntegerTest(bool expected, int value, int lowerBound, int upperBound)
         {
-            bool actual = value.IsBetween(lowerBound, upperBound, isEqualIncluded: false);
+            bool actual = value.IsBetween(lowerBound, upperBound, isInclusive: false);
 
             Assert.AreEqual(expected, actual);
         }
@@ -103,7 +103,7 @@ namespace CommonUtilities.Tests
             DateTime dateValue = DateTime.ParseExact(value, dateFormat, null);
             DateTime dateLowerBound = DateTime.ParseExact(lowerBound, dateFormat, null);
             DateTime dateUpperBound = DateTime.ParseExact(upperBound, dateFormat, null);
-            bool actual = dateValue.IsBetween(dateLowerBound, dateUpperBound, isEqualIncluded: false);
+            bool actual = dateValue.IsBetween(dateLowerBound, dateUpperBound, isInclusive: false);
 
             Assert.AreEqual(expected, actual);
         }
@@ -120,7 +120,7 @@ namespace CommonUtilities.Tests
             DateTime dateValue = DateTime.ParseExact(value, dateFormat, null);
             DateTime dateLowerBound = DateTime.ParseExact(lowerBound, dateFormat, null);
             DateTime dateUpperBound = DateTime.ParseExact(upperBound, dateFormat, null);
-            bool actual = dateValue.IsBetween(dateLowerBound, dateUpperBound, isEqualIncluded: false);
+            bool actual = dateValue.IsBetween(dateLowerBound, dateUpperBound, isInclusive: false);
 
             Assert.AreEqual(expected, actual);
         }

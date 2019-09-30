@@ -59,6 +59,9 @@
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.1\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Telerik.JustMock">
+      <HintPath>../JustMock/Telerik.JustMock.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Abstractions, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.11.1\lib\net47\Unity.Abstractions.dll</HintPath>
     </Reference>
@@ -75,14 +78,19 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="UtilityTests.cs" />
     <Compile Include="ExtensionsTests.cs" />
-    <Compile Include="ExtensionsTestsBase.cs" />
+    <Compile Include="TestsBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CommonUtilities\CommonUtilities.csproj">
       <Project>{0B98839D-0BD8-4E2C-B4A2-B5D2CCEAD3AE}</Project>
       <Name>CommonUtilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CustomEntity\CustomEntity.csproj">
+      <Project>{af6ebcf3-2341-417f-a2a6-f9f0fa9e082d}</Project>
+      <Name>CustomEntity</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
