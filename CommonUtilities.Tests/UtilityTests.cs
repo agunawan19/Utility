@@ -58,21 +58,14 @@ namespace CommonUtilities.Tests
             Employee existingEmployeeInfo = GetEmployeeInfo(existingStatus, existingHireDate, existingTerminationDate);
             Employee importedEmployeeInfo = GetEmployeeInfo(importedStatus, importedHireDate, importedTerminationDate);
 
-            DateTime? expected = ConvertDateFromString(expectedTerminationDate);
+            DateTime? expected = null;
+            if (DateTime.TryParseExact(existingTerminationDate, "yyyy/MM/dd", null, System.Globalization.DateTimeStyles.None, out DateTime parsedDate)) {
+                expected = parsedDate;
+            }
+
             DateTime? actual = Utility.GetTerminationDate(existingEmployeeInfo, importedEmployeeInfo);
 
             Assert.AreEqual(expected, actual);
-        }
-
-        private DateTime? ConvertDateFromString(string expectedTerminationDate)
-        {
-            DateTime? expected = null;
-            if (!string.IsNullOrWhiteSpace(expectedTerminationDate)) {
-                var (year, month, day) = SplitDateString(expectedTerminationDate);
-                expected = new DateTime(year, month, day);
-            }
-
-            return expected;
         }
 
         private Employee GetEmployeeInfo(string status, string hireDate, string terminationDate)
@@ -98,8 +91,8 @@ namespace CommonUtilities.Tests
 
         private (ushort Year, byte Month, byte Day) SplitDateString(string date)
         {
-            const string separator = "/";
-            string[] parts = date.Split(separator.ToCharArray());
+            char[] separators = new char[] { '/', '-' };
+            string[] parts = date.Split(separators);
 
             return (Year: ushort.Parse(parts[0]), Month: byte.Parse(parts[1]), Day: byte.Parse(parts[2]));
         }

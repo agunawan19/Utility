@@ -7,7 +7,7 @@ using CustomEntity;
 
 namespace CommonUtilities
 {
-    interface IUtility
+    public interface IUtility
     {
         DateTime? GetTerminationDate(Employee oldEmployeeInfo, Employee newEmployeeInfo);
     }
