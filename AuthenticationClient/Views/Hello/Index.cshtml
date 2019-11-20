@@ -3,6 +3,8 @@
     Layout = null;
 }
 
+@model AuthenticationClient.Models.HelloClient
+
 <!DOCTYPE html>
 
 <html>
@@ -11,6 +13,13 @@
     <title>Index</title>
 </head>
 <body>
+    @using (Html.BeginForm("Index", "Hello", FormMethod.Post)) {
+        @Html.LabelFor(model => model.UserName)
+        @Html.TextBoxFor(model => model.UserName)
+        @Html.LabelFor(model => model.Password)
+        @Html.PasswordFor(model => model.Password)
+        <input type="submit" value="Login"/>
+    }
     <div>
         @ViewBag.Result
     </div>

@@ -11,11 +11,16 @@ namespace AuthenticationClient.Controllers
     public class HelloController : Controller
     {
         // GET: HelloWorld
-        public ActionResult Index()
+        public ActionResult Index(Models.HelloClient helloClient)
         {
             const string accessDenied = "Access Denied";
-            var helloClient = new HelloClient();
-            ViewBag.Result = helloClient.HelloWorld() ?? accessDenied;
+            const string firstTimeMessage = "Please enter username and password";
+            string message = string.IsNullOrEmpty(helloClient.UserName)
+                             && string.IsNullOrEmpty(helloClient.Password)
+                ? firstTimeMessage
+                : accessDenied;
+
+            ViewBag.Result = $"{helloClient.HelloWorld() ?? message}, {helloClient.UserName}";
             return View();
         }
     }

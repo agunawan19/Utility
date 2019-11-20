@@ -10,6 +10,9 @@ namespace AuthenticationClient.Models
 {
     public class HelloClient
     {
+        public string UserName { get; set; }
+        public string Password { get; set; }
+
         public string HelloWorld()
         {
             try
@@ -17,8 +20,8 @@ namespace AuthenticationClient.Models
                 var helloClientService = new ServiceHelloClient();
                 helloClientService.ClientCredentials.ServiceCertificate.Authentication.CertificateValidationMode =
                     X509CertificateValidationMode.None;
-                helloClientService.ClientCredentials.UserName.UserName = "acc1";
-                helloClientService.ClientCredentials.UserName.Password = "123";
+                helloClientService.ClientCredentials.UserName.UserName = UserName;
+                helloClientService.ClientCredentials.UserName.Password = Password;
                 return helloClientService.HelloWorld();
             }
             catch
