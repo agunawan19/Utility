@@ -44,13 +44,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factory", "Factory\Factory.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{1AE864D7-0A35-47ED-89E5-E41047A09D2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FizzBuzz.Library", "FizzBuzz.Library\FizzBuzz.Library.csproj", "{1DEB3872-9920-4245-9FFA-DC59A3D928B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FizzBuzz.Library", "FizzBuzz.Library\FizzBuzz.Library.csproj", "{1DEB3872-9920-4245-9FFA-DC59A3D928B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FizzBuzz.Library.Tests", "FizzBuzz.Library.Tests\FizzBuzz.Library.Tests.csproj", "{D4E58F51-1A61-4B89-A158-D898ECCDEB14}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FizzBuzz.Library.Tests", "FizzBuzz.Library.Tests\FizzBuzz.Library.Tests.csproj", "{D4E58F51-1A61-4B89-A158-D898ECCDEB14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppCore", "ConsoleAppCore\ConsoleAppCore.csproj", "{B4AF41BE-7C62-4F4D-9BAB-8514D18D7156}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppCore", "ConsoleAppCore\ConsoleAppCore.csproj", "{B4AF41BE-7C62-4F4D-9BAB-8514D18D7156}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationServer", "AuthenticationServer\AuthenticationServer.csproj", "{A4F6DEA4-C648-4397-82AE-D77505232286}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationClient", "AuthenticationClient\AuthenticationClient.csproj", "{DCE04954-F11D-4863-B589-850604F2FA9C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A4F6DEA4-C648-4397-82AE-D77505232286} = {A4F6DEA4-C648-4397-82AE-D77505232286}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationClient.Tests", "AuthenticationClient.Tests\AuthenticationClient.Tests.csproj", "{6334A0B7-F753-4F83-A532-0324F97A9E02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -130,6 +137,14 @@ Global
 		{A4F6DEA4-C648-4397-82AE-D77505232286}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4F6DEA4-C648-4397-82AE-D77505232286}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4F6DEA4-C648-4397-82AE-D77505232286}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCE04954-F11D-4863-B589-850604F2FA9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCE04954-F11D-4863-B589-850604F2FA9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCE04954-F11D-4863-B589-850604F2FA9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCE04954-F11D-4863-B589-850604F2FA9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6334A0B7-F753-4F83-A532-0324F97A9E02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6334A0B7-F753-4F83-A532-0324F97A9E02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6334A0B7-F753-4F83-A532-0324F97A9E02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6334A0B7-F753-4F83-A532-0324F97A9E02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
