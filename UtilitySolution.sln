@@ -50,6 +50,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FizzBuzz.Library.Tests", "F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppCore", "ConsoleAppCore\ConsoleAppCore.csproj", "{B4AF41BE-7C62-4F4D-9BAB-8514D18D7156}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationServer", "AuthenticationServer\AuthenticationServer.csproj", "{A4F6DEA4-C648-4397-82AE-D77505232286}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -124,6 +126,10 @@ Global
 		{B4AF41BE-7C62-4F4D-9BAB-8514D18D7156}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4AF41BE-7C62-4F4D-9BAB-8514D18D7156}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4AF41BE-7C62-4F4D-9BAB-8514D18D7156}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4F6DEA4-C648-4397-82AE-D77505232286}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4F6DEA4-C648-4397-82AE-D77505232286}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4F6DEA4-C648-4397-82AE-D77505232286}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4F6DEA4-C648-4397-82AE-D77505232286}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
